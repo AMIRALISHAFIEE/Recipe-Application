@@ -1,75 +1,70 @@
-# Nuxt Minimal Starter
+# Recipe Application
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A responsive recipe browsing app built with Nuxt 4 and Vue 3. Fetches recipes from the [DummyJSON](https://dummyjson.com) API and displays them with ingredient checklists, step-by-step instructions, and nutritional details.
 
-## Setup
+## Tech Stack
 
-Make sure to install dependencies:
+| Layer | Technology |
+|-------|-----------|
+| Framework | Nuxt 4 + Vue 3 |
+| HTTP Client | Axios |
+| Icons | `@nuxt/icon` (Material Design Icons) |
+| Images | `@nuxt/image` |
+| Styling | Scoped CSS with CSS custom properties |
+| Font | Montserrat (Google Fonts) |
+| Testing | Vitest + `@vue/test-utils` + happy-dom |
+| Container | Docker (Node 20 Alpine, multi-stage build) |
+
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js >= 20
+- npm, pnpm, yarn, or bun
+
+### Install dependencies
 
 ```bash
-# npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+### Development server
 
 ```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+The app will be available at `http://localhost:3000`.
 
-Build the application for production:
+### Production build
 
 ```bash
-# npm
 npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+npm run preview
 ```
 
-Locally preview production build:
+### Docker
 
 ```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
+docker compose up --build
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+The container exposes port 3000.
+
+## Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server |
+| `npm run build` | Build for production |
+| `npm run preview` | Preview production build |
+| `npm run generate` | Generate static site |
+| `npm run postinstall` | Prepare Nuxt types |
+
+## API
+
+All recipe data comes from `https://dummyjson.com/recipes`. No authentication required.
+
+- `GET /recipes/` — list all recipes
+- `GET /recipes/:id` — single recipe by ID
